@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    
+    <!-- GitHub Pages primer theme CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css">
     
     {% if site.title and site.title != page.title %}
     <title>{{ page.title }} - {{ site.title }}</title>
@@ -28,37 +30,82 @@
                 flowchart: {
                     useMaxWidth: true,
                     htmlLabels: true
-                },
-                sequence: {
-                    useMaxWidth: true
-                },
-                gantt: {
-                    useMaxWidth: true
-                },
-                class: {
-                    useMaxWidth: true
-                },
-                state: {
-                    useMaxWidth: true
-                },
-                pie: {
-                    useMaxWidth: true
-                },
-                journey: {
-                    useMaxWidth: true
-                },
-                gitGraph: {
-                    useMaxWidth: true
                 }
             });
         });
     </script>
     
-    <!-- Custom CSS for better Mermaid rendering -->
+    <!-- Custom CSS for better design and Mermaid rendering -->
     <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292f;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styling */
+        header {
+            border-bottom: 1px solid #d1d9e0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2em;
+            font-weight: 600;
+        }
+        
+        header h1 a {
+            color: #0969da;
+            text-decoration: none;
+        }
+        
+        header h1 a:hover {
+            text-decoration: underline;
+        }
+        
+        header p {
+            color: #656d76;
+            margin: 0 0 20px 0;
+        }
+        
+        /* Navigation styling */
+        .site-nav {
+            margin: 0;
+        }
+        
+        .site-nav a {
+            display: inline-block;
+            margin-right: 20px;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #0969da;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        
+        .site-nav a:hover {
+            background-color: #f6f8fa;
+            border-color: #d1d9e0;
+        }
+        
+        /* Mermaid diagrams */
         .mermaid {
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
+            background-color: #f6f8fa;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            padding: 20px;
         }
         
         .mermaid svg {
@@ -66,42 +113,43 @@
             height: auto;
         }
         
-        /* Dark mode support for Mermaid */
-        @media (prefers-color-scheme: dark) {
-            .mermaid {
-                filter: invert(1) hue-rotate(180deg);
-            }
-            .mermaid img {
-                filter: invert(1) hue-rotate(180deg);
-            }
-        }
-        
-        /* Responsive design improvements */
-        .container-lg {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Better code block styling */
+        /* Code blocks */
         pre {
             background-color: #f6f8fa;
+            border: 1px solid #d1d9e0;
             border-radius: 6px;
             padding: 16px;
             overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
         }
         
-        /* Table improvements */
+        code {
+            background-color: rgba(175,184,193,0.2);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 85%;
+        }
+        
+        pre code {
+            background: transparent;
+            padding: 0;
+        }
+        
+        /* Tables */
         table {
             border-collapse: collapse;
             margin: 20px 0;
             width: 100%;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            overflow: hidden;
         }
         
         table th,
         table td {
-            border: 1px solid #d0d7de;
-            padding: 8px 12px;
+            border: 1px solid #d1d9e0;
+            padding: 12px;
             text-align: left;
         }
         
@@ -110,25 +158,145 @@
             font-weight: 600;
         }
         
-        /* Navigation improvements */
-        .site-nav {
-            margin: 20px 0;
+        table tr:nth-child(even) {
+            background-color: #f6f8fa;
         }
         
-        .site-nav a {
-            margin-right: 20px;
-            text-decoration: none;
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+        
+        h1 { font-size: 2em; border-bottom: 1px solid #d1d9e0; padding-bottom: 10px; }
+        h2 { font-size: 1.5em; border-bottom: 1px solid #d1d9e0; padding-bottom: 8px; }
+        h3 { font-size: 1.25em; }
+        h4 { font-size: 1em; }
+        
+        /* Links */
+        a {
             color: #0969da;
+            text-decoration: none;
         }
         
-        .site-nav a:hover {
+        a:hover {
             text-decoration: underline;
+        }
+        
+        /* Lists */
+        ul, ol {
+            padding-left: 2em;
+        }
+        
+        li {
+            margin-bottom: 0.25em;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            padding: 0 1em;
+            color: #656d76;
+            border-left: 0.25em solid #d1d9e0;
+            margin: 0 0 16px 0;
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid #d1d9e0;
+            padding-top: 20px;
+            margin-top: 40px;
+            color: #656d76;
+            font-size: 0.9em;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .site-nav a {
+                display: block;
+                margin: 5px 0;
+                text-align: center;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            .mermaid {
+                padding: 10px;
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0d1117;
+                color: #f0f6fc;
+            }
+            
+            header {
+                border-bottom-color: #30363d;
+            }
+            
+            .site-nav a {
+                color: #58a6ff;
+                border-color: #30363d;
+            }
+            
+            .site-nav a:hover {
+                background-color: #21262d;
+            }
+            
+            pre {
+                background-color: #161b22;
+                border-color: #30363d;
+            }
+            
+            code {
+                background-color: rgba(110,118,129,0.4);
+            }
+            
+            table th {
+                background-color: #161b22;
+            }
+            
+            table tr:nth-child(even) {
+                background-color: #0d1117;
+            }
+            
+            table th, table td {
+                border-color: #30363d;
+            }
+            
+            .mermaid {
+                background-color: #161b22;
+                border-color: #30363d;
+            }
+            
+            h1, h2 {
+                border-bottom-color: #30363d;
+            }
+            
+            blockquote {
+                border-left-color: #30363d;
+                color: #8b949e;
+            }
+            
+            footer {
+                border-top-color: #30363d;
+                color: #8b949e;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container-lg px-3 my-5 markdown-body">
+    <div class="container">
         <header>
             <h1><a href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
             
@@ -137,11 +305,11 @@
             {% endif %}
             
             <nav class="site-nav">
-                <a href="{{ '/' | relative_url }}">ホーム</a>
-                <a href="{{ '/要件定義書' | relative_url }}">要件定義書</a>
-                <a href="{{ '/システム要件図' | relative_url }}">システム要件図</a>
-                <a href="{{ '/方式設計書' | relative_url }}">方式設計書</a>
-                <a href="{{ site.github.repository_url }}">GitHub</a>
+                <a href="{{ '/' | relative_url }}">🏠 ホーム</a>
+                <a href="{{ '/要件定義書' | relative_url }}">📋 要件定義書</a>
+                <a href="{{ '/システム要件図' | relative_url }}">🏗️ システム要件図</a>
+                <a href="{{ '/方式設計書' | relative_url }}">📐 方式設計書</a>
+                <a href="{{ site.github.repository_url }}" target="_blank">🔗 GitHub</a>
             </nav>
         </header>
 
@@ -152,14 +320,14 @@
         <footer>
             <hr>
             <p>
-                このプロジェクトは
-                <a href="{{ site.github.repository_url }}">GitHub</a>
+                📚 このプロジェクトは
+                <a href="{{ site.github.repository_url }}" target="_blank">GitHub</a>
                 でホストされています。
             </p>
             {% if site.github.is_project_page %}
             <p>
                 <small>
-                    管理者: <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
+                    👤 管理者: <a href="{{ site.github.owner_url }}" target="_blank">{{ site.github.owner_name }}</a>
                 </small>
             </p>
             {% endif %}

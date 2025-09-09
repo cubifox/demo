@@ -2,9 +2,8 @@
 title: "TODO APP ドキュメント"
 description: "Next.js + React TODO アプリケーションの技術ドキュメント"
 
-# Theme
-theme: minima
-remote_theme: pages-themes/minimal@v0.2.0
+# Theme - Use GitHub's primer theme for better compatibility
+remote_theme: pages-themes/primer@v0.6.0
 
 # Plugins
 plugins:
