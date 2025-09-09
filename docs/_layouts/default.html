@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    
+    {% if site.title and site.title != page.title %}
+    <title>{{ page.title }} - {{ site.title }}</title>
+    {% else %}
+    <title>{{ page.title }}</title>
+    {% endif %}
+    
+    <meta name="description" content="{{ page.description | default: site.description | default: site.github.project_tagline }}">
+    
+    <!-- Mermaid Support -->
+    <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default',
+                themeVariables: {
+                    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif',
+                    fontSize: '14px'
+                },
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true
+                },
+                sequence: {
+                    useMaxWidth: true
+                },
+                gantt: {
+                    useMaxWidth: true
+                },
+                class: {
+                    useMaxWidth: true
+                },
+                state: {
+                    useMaxWidth: true
+                },
+                pie: {
+                    useMaxWidth: true
+                },
+                journey: {
+                    useMaxWidth: true
+                },
+                gitGraph: {
+                    useMaxWidth: true
+                }
+            });
+        });
+    </script>
+    
+    <!-- Custom CSS for better Mermaid rendering -->
+    <style>
+        .mermaid {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Dark mode support for Mermaid */
+        @media (prefers-color-scheme: dark) {
+            .mermaid {
+                filter: invert(1) hue-rotate(180deg);
+            }
+            .mermaid img {
+                filter: invert(1) hue-rotate(180deg);
+            }
+        }
+        
+        /* Responsive design improvements */
+        .container-lg {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Better code block styling */
+        pre {
+            background-color: #f6f8fa;
+            border-radius: 6px;
+            padding: 16px;
+            overflow: auto;
+        }
+        
+        /* Table improvements */
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+            width: 100%;
+        }
+        
+        table th,
+        table td {
+            border: 1px solid #d0d7de;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        
+        table th {
+            background-color: #f6f8fa;
+            font-weight: 600;
+        }
+        
+        /* Navigation improvements */
+        .site-nav {
+            margin: 20px 0;
+        }
+        
+        .site-nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #0969da;
+        }
+        
+        .site-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-lg px-3 my-5 markdown-body">
+        <header>
+            <h1><a href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+            
+            {% if site.description or site.github.project_tagline %}
+            <p>{{ site.description | default: site.github.project_tagline }}</p>
+            {% endif %}
+            
+            <nav class="site-nav">
+                <a href="{{ '/' | relative_url }}">ホーム</a>
+                <a href="{{ '/要件定義書' | relative_url }}">要件定義書</a>
+                <a href="{{ '/システム要件図' | relative_url }}">システム要件図</a>
+                <a href="{{ '/方式設計書' | relative_url }}">方式設計書</a>
+                <a href="{{ site.github.repository_url }}">GitHub</a>
+            </nav>
+        </header>
+
+        <main>
+            {{ content }}
+        </main>
+
+        <footer>
+            <hr>
+            <p>
+                このプロジェクトは
+                <a href="{{ site.github.repository_url }}">GitHub</a>
+                でホストされています。
+            </p>
+            {% if site.github.is_project_page %}
+            <p>
+                <small>
+                    管理者: <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
+                </small>
+            </p>
+            {% endif %}
+        </footer>
+    </div>
+</body>
+</html>

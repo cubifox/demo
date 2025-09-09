@@ -1,0 +1,71 @@
+# GitHub Pages configuration for docs
+title: "TODO APP ドキュメント"
+description: "Next.js + React TODO アプリケーションの技術ドキュメント"
+
+# Theme
+theme: minima
+remote_theme: pages-themes/minimal@v0.2.0
+
+# Plugins
+plugins:
+  - jekyll-github-metadata
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+
+# GitHub Pages settings
+github:
+  repository_url: https://github.com/cubifox/demo
+
+# Navigation
+header_pages:
+  - 要件定義書.md
+  - システム要件図.md
+  - 方式設計書.md
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include
+include:
+  - _pages
+
+# Enable Mermaid support
+mermaid:
+  src: 'https://unpkg.com/mermaid@10/dist/mermaid.min.js'
