@@ -1,41 +1,4 @@
-<<<<<<< HEAD
-# ToDoアプリ要件定義書
-
-## 機能要件一覧
-
-| ID   | 要件内容                                                                 |
-|------|-------------------------------------------------------------------------|
-| F01  | ユーザーは新しいタスクを作成できる                                      |
-| F02  | ユーザーは既存のタスクを編集できる                                      |
-| F03  | ユーザーは不要なタスクを削除できる                                      |
-| F04  | ユーザーはタスクを完了としてマークできる                                |
-| F05  | ユーザーは全てのタスクを一覧で表示できる                                |
-| F06  | ユーザーはタスクをカテゴリに分けて整理できる                            |
-| F07  | ユーザーはタスクに優先度を設定できる（高・中・低）                      |
-| F08  | ユーザーはタスクに期限を設定できる                                      |
-
----
-
-## Mermaid図（機能関連図）
-
-```mermaid
-graph TD
-	user -- F01_新規作成 --> task
-	user -- F02_編集 --> task
-	user -- F03_削除 --> task
-	user -- F04_完了マーク --> task
-	user -- F05_一覧表示 --> task_list
-	user -- F06_カテゴリ分け --> category
-	user -- F07_優先度設定 --> priority
-	user -- F08_期限設定 --> deadline
-
-	task_list -- タスクを含む --> task
-	task -- 所属カテゴリ --> category
-	task -- 優先度 --> priority
-	task -- 期限 --> deadline
-```
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ToDo アプリ要件定義書
 
 ## Getting Started
 
@@ -71,6 +34,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# demo
->>>>>>> 8ad8a2b66e97ed1b3f9b8e18217efd1ee5442949
